@@ -79,6 +79,13 @@ class PreferencesWindowController (pretty.OutputMixin):
 		'show_preferences': _('Show Preferences'),
 		'switch_to_source': _('Switch to First Pane'),
 		"toggle_text_mode_quick": _('Toggle Text Mode'),
+		'current_go_down': 'Go Down',
+		'current_go_up': 'Go Up',
+		'switch_current': 'Switch Current',
+		'switch_current_reverse': 'Switch Current Reverse',
+		'browse_down': 'Browse Down',
+		'browse_back': 'Browse Back',
+		'cancel': 'Cancel',
 	}
 
 	def __init__(self):

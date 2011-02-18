@@ -1395,6 +1395,39 @@ class Interface (gobject.GObject):
 		self.data_controller.search(pane, key=text, context=text,
 				text_mode=self.get_in_text_mode())
 
+	def current_go_up(self):
+		self.current.go_up()
+
+	def current_go_page_up(self):
+		self.current.go_page_up()
+
+	def current_go_down(self):
+		if (not self.current.get_current() and
+				self.current.get_match_state() is State.Wait):
+			self._populate_search()
+		self.current.go_down()
+
+	def current_go_page_down(self):
+		if (not self.current.get_current() and
+				self.current.get_match_state() is State.Wait):
+			self._populate_search()
+		self.current.go_page_down()
+
+	def current_go_first(self):
+		self.current.go_first()
+
+	def switch_current_reverse(self):
+		self.switch_current(reverse=True)
+
+	def browse_down(self):
+		self._browse_down()
+
+	def browse_back(self):
+		self._back_key_press()
+
+	def cancel(self):
+		self._escape_key_press()
+
 gobject.type_register(Interface)
 gobject.signal_new("cancelled", Interface, gobject.SIGNAL_RUN_LAST,
 		gobject.TYPE_BOOLEAN, ())
